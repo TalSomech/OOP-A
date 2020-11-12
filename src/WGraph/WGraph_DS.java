@@ -19,7 +19,7 @@ public class WGraph_DS implements weighted_graph, Serializable {
 
     /**
      * copy constructor which deep copy's a graph
-     * @param other
+     * @param other: other graph
      */
     public WGraph_DS(weighted_graph other) {
         this.nodeMap = new HashMap<>();
@@ -150,7 +150,7 @@ public class WGraph_DS implements weighted_graph, Serializable {
     }
     /**
      * a function to return a predecessor of a specific node
-     * @param son
+     * @param son: the node
      *
      */
     public node_info getFather(node_info son) {
@@ -160,8 +160,8 @@ public class WGraph_DS implements weighted_graph, Serializable {
     /**
      * a function used to check if a specific node is visited
      * used in BFS function
-     * @param cur
-     * @return
+     * @param cur: current node
+     * @return boolean value
      */
     public boolean isVisited(node_info cur) {
         return ((NodeInfo) cur).isVisited();
@@ -169,8 +169,8 @@ public class WGraph_DS implements weighted_graph, Serializable {
 
     /**
      * a function to set a specific node's visited field
-     * @param cur
-     * @param vis
+     * @param cur:node to set
+     * @param vis: boolean value
      */
     public void setVisited(node_info cur, boolean vis) {
         ((NodeInfo) cur).setVisited(vis);
@@ -232,8 +232,8 @@ public class WGraph_DS implements weighted_graph, Serializable {
 
         /**
          * checks if a node is connected to current node
-         * @param key
-         * @return
+         * @param key: a key of the node to check
+         * @return boolean value
          */
         public boolean hasNi(int key) {
             return edges.containsKey(key);
@@ -258,8 +258,8 @@ public class WGraph_DS implements weighted_graph, Serializable {
 
         /**
          * a function to compare between 2 nodes
-         * @param other
-         * @return
+         * @param other: other node to compare
+         * @return if they're equal
          */
         public boolean equalsB(node_info other){
             if(this.getKey()!=other.getKey()||this.edges.size()!=((NodeInfo)other).edges.size())
