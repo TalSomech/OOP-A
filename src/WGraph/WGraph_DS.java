@@ -8,11 +8,19 @@ public class WGraph_DS implements weighted_graph, Serializable {
     private int eCount;
     private int mCount;
 
+    /**
+     * an empty constructor for making a new graph
+     */
     public WGraph_DS() {
         nodeMap = new HashMap<>();
         eCount = 0;
         mCount = 0;
     }
+
+    /**
+     * copy constructor which deep copy's a graph
+     * @param other
+     */
     public WGraph_DS(weighted_graph other) {
         this.nodeMap = new HashMap<>();
         for (node_info now : other.getV()) {
@@ -131,21 +139,43 @@ public class WGraph_DS implements weighted_graph, Serializable {
         return mCount;
     }
 
+    /**
+     * a function to set a predecessor of a specific node
+     *
+     * @param father: pred to be set
+     * @param son: specific node
+     */
     public void setFather(node_info father, node_info son) {
         ((NodeInfo) son).setMyFather((NodeInfo) father);
     }
-
+    /**
+     * a function to return a predecessor of a specific node
+     * @param son
+     *
+     */
     public node_info getFather(node_info son) {
         return ((NodeInfo) son).getMyFather();
     }
 
+    /**
+     * a function used to check if a specific node is visited
+     * used in BFS function
+     * @param cur
+     * @return
+     */
     public boolean isVisited(node_info cur) {
         return ((NodeInfo) cur).isVisited();
     }
 
+    /**
+     * a function to set a specific node's visited field
+     * @param cur
+     * @param vis
+     */
     public void setVisited(node_info cur, boolean vis) {
         ((NodeInfo) cur).setVisited(vis);
     }
+
     @Override
     public boolean equals(Object obj){
         if (obj == null) {
@@ -164,6 +194,11 @@ public class WGraph_DS implements weighted_graph, Serializable {
         }
         return true;
     }
+
+    /**
+     * a class which implements the node_info interface
+     * used to create a node in a graph
+     */
     private class NodeInfo implements node_info, Comparable<node_info>, Serializable {
         private final int key;
         HashMap<Integer, Double> edges;
@@ -186,10 +221,20 @@ public class WGraph_DS implements weighted_graph, Serializable {
             return key;
         }
 
+        /**
+         * a function to return all the neighboring nodes keys connected
+         * to a specific node
+         * @return collection of integer
+         */
         public Collection<Integer> getNi() {
             return edges.keySet();
         }
 
+        /**
+         * checks if a node is connected to current node
+         * @param key
+         * @return
+         */
         public boolean hasNi(int key) {
             return edges.containsKey(key);
         }
@@ -210,11 +255,24 @@ public class WGraph_DS implements weighted_graph, Serializable {
             NodeInfo other = (NodeInfo) obj;
             return key == other.getKey();
         }
+
+        /**
+         * a function to compare between 2 nodes
+         * @param other
+         * @return
+         */
         public boolean equalsB(node_info other){
             if(this.getKey()!=other.getKey()||this.edges.size()!=((NodeInfo)other).edges.size())
                 return false;
             return this.edges.equals(((NodeInfo) other).edges);
         }
+
+        /**
+         * a function used to connect between current node
+         * and another node
+         * @param t: other node
+         * @param w:weight of the edge
+         */
         public void addNi(node_info t, double w) {
             if (this.hasNi(t.getKey())) {
                 return;

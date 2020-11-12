@@ -6,6 +6,9 @@ import java.util.*;
 public class WGraph_Algo implements weighted_graph_algorithms {
     private WGraph_DS wThGraph;
 
+    /**
+     * an empty constructor
+     */
     public WGraph_Algo() {
         wThGraph = new WGraph_DS();
     }
@@ -101,7 +104,14 @@ public class WGraph_Algo implements weighted_graph_algorithms {
             return false;
         }
     }
-
+    /**
+     * the algorithm finds all the connected nodes to a source node
+     * the algorithm checks weighted paths the neighboring nodes until all nodes are visited
+     * and sets every node's predecessor by the shortest path from src node to it
+     * runTime:(O(V+E))
+     * @param src node
+     * @return int
+     */
     private void dijkstra(node_info src) {
         resetTagI();
         src.setTag(0);
@@ -123,7 +133,14 @@ public class WGraph_Algo implements weighted_graph_algorithms {
         }
 
     }
-
+    /**
+     * the algorithm finds all the connected nodes to a source node
+     * the algorithm checks layer by layer the neighboring nodes until all nodes are visited
+     * and sets every node's predecessor by the shortest path from src node to it
+     * runTime:(O(V+E))
+     * @param key node
+     * @return int
+     */
     private int BFS(node_info key) {
         this.resetTagZ();
         Queue<node_info> que = new LinkedList<>();
@@ -144,13 +161,20 @@ public class WGraph_Algo implements weighted_graph_algorithms {
         }
         return tyCom;
     }
-
+    /**
+     * a function to reset all the nodes graph's tags to 0
+     * used in BFS algorithm
+     */
     private void resetTagZ() {
         for (node_info cur : wThGraph.getV()) {
             cur.setTag(0);
         }
     }
 
+    /**
+     * a function to reset all the nodes graph's tags,visited , and predecessor to default
+     * used for dijkstra algorithm
+     */
     private void resetTagI() {
         for (node_info cur : wThGraph.getV()) {
             cur.setTag(Integer.MAX_VALUE);
@@ -159,39 +183,4 @@ public class WGraph_Algo implements weighted_graph_algorithms {
         }
     }
 
-    public static void main(String[] args) {
-        WGraph_DS g = new WGraph_DS();
-        g.addNode(1);
-        g.addNode(2);
-        g.addNode(3);
-        g.addNode(4);
-        g.addNode(5);
-        g.addNode(6);
-        g.addNode(7);
-        g.addNode(2);
-        System.out.println(g.getV().toString());
-        g.connect(1, 2, 6);
-        g.connect(4, 5, 12);
-        g.connect(2, 4, 10);
-        g.connect(3, 6, 5);
-        g.connect(5, 7, 7);
-        g.connect(1, 3, 8);
-        g.connect(3, 5, 0);
-        System.out.println(g.getV(7));
-        System.out.println(g.getV(2));
-        System.out.println(g.getNode(5));
-        System.out.println(g.hasEdge(12, 4));
-        System.out.println(g.nodeSize());
-        System.out.println(g.getV(5));
-        System.out.println(g.getEdge(1, 2));
-        WGraph_Algo h = new WGraph_Algo();
-        h.init(g);
-        System.out.println(h.shortestPath(2, 5));
-        System.out.println(h.shortestPathDist(2,5));
-        String file="myfile";
-        h.save(file);
-        WGraph_Algo k=new WGraph_Algo();
-        k.load(file);
-        System.out.println(k.getGraph().getV().toString());
-    }
 }
