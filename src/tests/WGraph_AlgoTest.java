@@ -1,12 +1,10 @@
 package tests;
 
-import WGraph.WGraph_Algo;
-import WGraph.WGraph_DS;
-import WGraph.node_info;
-import WGraph.weighted_graph;
+import WGraph.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -38,7 +36,7 @@ class WGraph_AlgoTest {
         WGraph_DS g = init(10, 20);
         h.init(g);
         weighted_graph s = h.copy();
-        assertArrayEquals(s.getV().toArray(), g.getV().toArray());
+        assertEquals(s, g);
         g.removeNode(5);
         assertNotEquals(null, s.getNode(5));
         assertNull(g.getNode(5));
@@ -59,7 +57,6 @@ class WGraph_AlgoTest {
         assertFalse(h.isConnected());
         g.connect(1, 5, 5);
         assertTrue(h.isConnected());
-
     }
 
     @Test
@@ -67,7 +64,6 @@ class WGraph_AlgoTest {
         WGraph_Algo h = new WGraph_Algo();
         WGraph_DS g = init(15, 20);
         h.init(g);
-        System.out.println(h.shortestPathDist(1, 5));
         assertEquals(14.587, h.shortestPathDist(1, 5), 0.001);
         g.removeNode(4);
         assertEquals(-1, h.shortestPathDist(1, 5));
@@ -82,9 +78,9 @@ class WGraph_AlgoTest {
         WGraph_DS g = init(15, 20);
         h.init(g);
         List<node_info> test = new LinkedList<>();
-        test.add(g.getNode(5));
-        test.add(g.getNode(4));
         test.add(g.getNode(1));
+        test.add(g.getNode(4));
+        test.add(g.getNode(5));
         List<node_info> actual = h.shortestPath(1, 5);
         boolean flag = true;
         for (int i = 0; i < actual.size(); i++) {
@@ -117,9 +113,10 @@ class WGraph_AlgoTest {
         f.init(k);
         assertTrue(f.save("mygraph"));
         WGraph_Algo h = new WGraph_Algo();
-        h.load("mygraph");
+        assertTrue(h.load("mygraph"));
         weighted_graph g=h.getGraph();
         assertTrue(k.equals(g));
+        assertFalse(h.load("myfile"));
     }
 
 

@@ -97,6 +97,7 @@ class WGraph_DSTest {
 
     @Test
     void removeEdge() {
+        WGraph_DS h= new WGraph_DS();
         WGraph_DS g=init(10,20);
         int nOE=g.edgeSize();
         removeCheck(g, nOE);

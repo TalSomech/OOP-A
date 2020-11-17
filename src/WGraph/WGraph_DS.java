@@ -201,7 +201,7 @@ public class WGraph_DS implements weighted_graph, Serializable {
      */
     private class NodeInfo implements node_info, Comparable<node_info>, Serializable {
         private final int key;
-        HashMap<Integer, Double> edges;
+        private HashMap<Integer, Double> edges;
         private double tag;
         private String info;
         boolean visited;
@@ -239,22 +239,7 @@ public class WGraph_DS implements weighted_graph, Serializable {
             return edges.containsKey(key);
         }
 
-        @Override
-        public int hashCode() {
-            return Objects.hashCode(key);
-        }
 
-        @Override
-        public boolean equals(Object obj) {
-            if (obj == null) {
-                return false;
-            }
-            if (!(obj instanceof NodeInfo)) {
-                return false;
-            }
-            NodeInfo other = (NodeInfo) obj;
-            return key == other.getKey();
-        }
 
         /**
          * a function to compare between 2 nodes
@@ -352,6 +337,22 @@ public class WGraph_DS implements weighted_graph, Serializable {
         @Override
         public int compareTo(node_info o) {
             return Double.compare(this.getTag(), o.getTag());
+        }
+        @Override
+        public int hashCode() {
+            return Objects.hashCode(key);
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (obj == null) {
+                return false;
+            }
+            if (!(obj instanceof NodeInfo)) {
+                return false;
+            }
+            NodeInfo other = (NodeInfo) obj;
+            return key == other.getKey();
         }
     }
 

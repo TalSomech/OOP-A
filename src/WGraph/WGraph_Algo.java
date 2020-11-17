@@ -28,6 +28,10 @@ public class WGraph_Algo implements weighted_graph_algorithms {
         return new WGraph_DS(this.wThGraph);
     }
 
+    /**
+     * checks if the graph is connected , ive used BFS algorithm here
+     * @return if connected
+     */
     @Override
     public boolean isConnected() {
         if (wThGraph.nodeSize() == 0 || wThGraph.nodeSize() == 1)
@@ -35,12 +39,18 @@ public class WGraph_Algo implements weighted_graph_algorithms {
         node_info n = wThGraph.getV().stream().findAny().get();
         return BFS(n) == wThGraph.nodeSize();
     }
-
+    /**
+     * this is an interface function , ive used the dijkstra algorithm
+     * to set all the tags of the nodes and taking the tag of the last node
+     *
+     * @param src - start node
+     * @param dest - end (target) node
+     * @return list- shortest path
+     */
     @Override
     public double shortestPathDist(int src, int dest) {
         if (src == dest)
             return 0;
-        //TODO: add exception
         if(wThGraph.getNode(dest)==null||wThGraph.getNode(src)==null)
             return -1;
         node_info desti = wThGraph.getNode(dest);
@@ -52,6 +62,14 @@ public class WGraph_Algo implements weighted_graph_algorithms {
         return path;
     }
 
+    /**
+     * this is an interface function , ive used the dijkstra algorithm
+     * to set al the predecessor nodes and then set a list of all the nodes
+     * tracing back to the source
+     * @param src - start node
+     * @param dest - end (target) node
+     * @return list- shortest path
+     */
     @Override
     public List<node_info> shortestPath(int src, int dest) {
         List<node_info> path = new LinkedList<>();
@@ -59,7 +77,6 @@ public class WGraph_Algo implements weighted_graph_algorithms {
             return path;
         if(wThGraph.getNode(dest)==null||wThGraph.getNode(src)==null)
             return path;
-        //TODO: add exception
         dijkstra(wThGraph.getNode(src));
         node_info desti = wThGraph.getNode(dest);
         while (wThGraph.getFather(desti) != null) {
@@ -71,6 +88,7 @@ public class WGraph_Algo implements weighted_graph_algorithms {
             path.clear();
             return path;
         }
+        Collections.reverse(path);
         return path;
     }
 
