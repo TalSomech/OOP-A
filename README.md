@@ -4,7 +4,7 @@
 Some Info: 
 the graph is built by 3 layer
 
-The Node layer which includes:
+**The Node layer which includes:
 
 -the edges are in a hashmap which includes the connected node
 and the weight of the edge
@@ -26,7 +26,7 @@ and the weight of the edge
 
 -Get and Set for a father node , used only for BFS algorithm
 
-The Graph layer which includes:
+**The Graph layer which includes:
 
 -2 Diffrent constructors:
 
@@ -55,7 +55,7 @@ The Graph layer which includes:
 -NodeSize , edgeSize and getMC which returns the node size , edge size , and the number of changes made to the graph
 
 
-The Graph Algorithms which includes:
+**The Graph Algorithms which includes:
 
 -init which initialize the graph
 
