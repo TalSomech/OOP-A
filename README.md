@@ -10,68 +10,68 @@ __The Node layer which includes:__
 and the weight of the edge
 
 
--getKey function which getting the key
+__getKey__ function which getting the key
 
--equalsB function to compare between 2 diffrent nodes
+__equalsB__ function to compare between 2 diffrent nodes
 
--getNi function which returns all the neighboring nodes
+__getNi__ function which returns all the neighboring nodes
 
--hasNi which checks by a key if a specific node is connected to a current node
+__hasNi__ which checks by a key if a specific node is connected to a current node
 
--addNi which is used to connect a node the current node
+__addNi__ which is used to connect a node the current node
 
--removeNode which disconnects a node from the current node
+__removeNode__ which disconnects a node from the current node
 
--Get and Set info and tag which used to return or change the current node's info or tag
+__Get__ and Set info and tag which used to return or change the current node's info or tag
 
--Get and Set for a father node , used only for BFS algorithm
+__Get__ and Set for a father node , used only for BFS algorithm
 
-**The Graph layer which includes:**
+##The Graph layer which includes:
 
 -2 Diffrent constructors:
 
-*One made for creating a new graph
+**One made for creating a new graph**
 
-*One made for deep copying a graph
+**One made for deep copying a graph**
 
--equals funcion to compare between 2 diffrent graphs
+__equals__ funcion to compare between 2 diffrent graphs
 
--getNode which returns a node in the graph
+__getNode__ which returns a node in the graph
 
--hasEdge which checks if 2 nodes are connected
+__hasEdge__ which checks if 2 nodes are connected
 
--addNode adds a node to the graph
+__addNode__ adds a node to the graph
 
--connect which connects the 2 nodes
+__connect__ which connects the 2 nodes
 
--getV which returns all the nodes in the graph
+__getV__ which returns all the nodes in the graph
 
--getV with a integer paramater to return the neighboring nodes to a specific nodes
+__getV__ with a integer paramater to return the neighboring nodes to a specific nodes
 
--removeNode function to remove a node from the graph
+__removeNode__ function to remove a node from the graph
 
--removeEdge function to disconnect 2 diffrent nodes
+__removeEdge__ function to disconnect 2 diffrent nodes
 
--NodeSize , edgeSize and getMC which returns the node size , edge size , and the number of changes made to the graph
+__NodeSize__ , edgeSize and getMC which returns the node size , edge size , and the number of changes made to the graph
 
 
-**The Graph Algorithms which includes:**
+##The Graph Algorithms which includes:
 
--init which initialize the graph
+__init__ which initialize the graph
 
--copy , to deep copy the graph
+__copy__ , to deep copy the graph
 
--isConnected to check if the graph is connected using BFS algorithm
+__isConnected__ to check if the graph is connected using BFS algorithm
 
--shortestPathDist which checks the shortest number of edges needed to get from a specific node to a diffrent node using dijkstra algorithm
+__shortestPathDist__ which checks the shortest number of edges needed to get from a specific node to a diffrent node using dijkstra algorithm
 
--shortestPath which returns a shallow pointer to all the nodes on the shortest path between 2 nodes using dijkstra algorithm
+__shortestPath__ which returns a shallow pointer to all the nodes on the shortest path between 2 nodes using dijkstra algorithm
 
--save function to save the graph using Objectoutputwriter onto harddrive
+__save__ function to save the graph using Objectoutputwriter onto harddrive
 
--load function to load a graph from the harddrive using objectinputreader
+__load__ function to load a graph from the harddrive using objectinputreader
 
-**How to use the program:**
+##How to use the program:
 
 WGraph_Algo h = new WGraph_Algo();
 
