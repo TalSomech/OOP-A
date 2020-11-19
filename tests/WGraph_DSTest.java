@@ -1,6 +1,6 @@
 
-import WGraph.WGraph_DS;
-import WGraph.node_info;
+import ex1.WGraph_DS;
+import ex1.node_info;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;

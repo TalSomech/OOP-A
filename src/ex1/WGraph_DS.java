@@ -1,4 +1,4 @@
-package WGraph;
+package ex1;
 
 import java.io.Serializable;
 import java.util.*;

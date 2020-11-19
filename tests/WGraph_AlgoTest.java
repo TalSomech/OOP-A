@@ -1,6 +1,6 @@
 
 
-import WGraph.*;
+import ex1.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
