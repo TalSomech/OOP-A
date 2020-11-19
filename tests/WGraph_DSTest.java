@@ -1,4 +1,3 @@
-package tests;
 
 import WGraph.WGraph_DS;
 import WGraph.node_info;
