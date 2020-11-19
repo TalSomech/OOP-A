@@ -1,5 +1,5 @@
 
-	# An implemantation of an weighted Undirectional graph in java.
+# An implemantation of an weighted Undirectional graph in java.
 
 **Some Info:** 
 the graph is built by 3 layer
