@@ -2,7 +2,7 @@
 # An implemantation of an weighted Undirectional graph in java.
 
 **Some Info:** 
-the graph is built by 3 layer
+the graph is built by 3 layers
 
 # The Node layer which includes:
 
@@ -71,7 +71,7 @@ __save__ function to save the graph using Objectoutputwriter onto harddrive
 
 __load__ function to load a graph from the harddrive using objectinputreader
 
-##How to use the program:
+# How to use the program:
 
 WGraph_Algo h = new WGraph_Algo();
 
