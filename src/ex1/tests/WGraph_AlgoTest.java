@@ -1,6 +1,9 @@
+package ex1.tests;
 
-
-import ex1.*;
+import ex1.src.WGraph_Algo;
+import ex1.src.WGraph_DS;
+import ex1.src.node_info;
+import ex1.src.weighted_graph;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -107,7 +110,7 @@ class WGraph_AlgoTest {
     void saveAndLoad() {
         WGraph_Algo f = new WGraph_Algo();
         WGraph_DS k = init(15, 20);
-        f.init(k);
+        f.init(k    );
         assertTrue(f.save("mygraph"));
         WGraph_Algo h = new WGraph_Algo();
         assertTrue(h.load("mygraph"));

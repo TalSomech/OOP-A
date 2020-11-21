@@ -1,4 +1,4 @@
-package ex1;
+package ex1.src;
 import java.util.Collection;
 
 /**
